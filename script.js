@@ -46,10 +46,10 @@ peopleInput.addEventListener('input', ({target}) => {
     people = parseInt(target.value) || 1;
     reload();
 })
-const tipElement = document.querySelector('#tip'), totalElement = document.querySelector('#total'), resetButton = document.getElementsByClassName('button-reset')[0];
+const tipElement = document.querySelector('#tip-amount'), totalElement = document.querySelector('#total'), resetButton = document.getElementsByClassName('button-reset')[0];
 
 function reload() {
-    const totalTip = bill / 100 * tip || 0;
+    const totalTip = bill * tip / 100 || 0;
 
     const tipPerPerson = totalTip / people;
     tipElement.textContent = "$" + (tipPerPerson > 999 ? tipPerPerson.toExponential(0) : tipPerPerson.toFixed(2));
