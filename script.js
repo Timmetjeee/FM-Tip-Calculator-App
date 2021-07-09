@@ -2,10 +2,12 @@ let bill = 0, tip = 0, people = 1;
 
 const billInput = document.getElementsByName('bill')[0];
 billInput.addEventListener('input', ({target}) => {
-    if (target.value.length > 0 && target.value < 1)
+    if (target.value.length > 0 && target.value <= 0) {
         target.parentElement.classList.add('invalid');
-    else
+        return;
+    } else {
         target.parentElement.classList.remove('invalid');
+    }    
 
     bill = parseFloat(target.value) || 0;
     reload();
@@ -38,10 +40,12 @@ function setTip(newTip) {
 
 const peopleInput = document.getElementsByName('people')[0];
 peopleInput.addEventListener('input', ({target}) => {
-    if (target.value.length > 0 && target.value < 1)
+    if (target.value.length > 0 && target.value <= 0) {
         target.parentElement.classList.add('invalid');
-    else
+        return;
+    } else {
         target.parentElement.classList.remove('invalid');
+    }    
 
     people = parseInt(target.value) || 1;
     reload();
