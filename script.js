@@ -25,10 +25,13 @@ for (let button of buttons) {
 }
 
 const tipInput = document.getElementsByName('tip')[0];
-tipInput.addEventListener('input', event => {
-    setTip(event.target.value);
-    activeButton = null; 
-});
+tipInput.addEventListener('input', handleCustomTip);
+tipInput.addEventListener('focus', handleCustomTip);
+
+function handleCustomTip({target}) {
+    setTip(target.value);
+    activeButton = null;
+}
 
 function setTip(newTip) {
     tip = parseFloat(newTip);
