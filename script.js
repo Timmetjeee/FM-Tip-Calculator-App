@@ -7,7 +7,7 @@ billInput.addEventListener('input', ({target}) => {
     else
         target.parentElement.classList.remove('invalid');
 
-    bill = parseFloat(target.value);
+    bill = parseFloat(target.value) || 0;
     reload();
 });
 
